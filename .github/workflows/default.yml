@@ -80,14 +80,12 @@ jobs:
       - name: Setup app
         run: bash $SCRIPT_DIR/setup_app.sh
 
-      - name: Setup ChromeDriver
-        uses: nanasess/setup-chromedriver@latest
-
       - name: Configure ChromeDriver
         run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+          cd ${GITHUB_WORKSPACE}/tests/behat/bin
+          npm install
+          cd ..
+          nohub java -Dwebdriver.chrome.driver=tests/behat/bin/node_modules/chromedriver/bin/chromedriver -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > chromedriver.log 2>&1
 
       - name: Test app
         run: bash $SCRIPT_DIR/test_app.sh
