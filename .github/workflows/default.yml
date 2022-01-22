@@ -81,7 +81,13 @@ jobs:
         run: bash $SCRIPT_DIR/setup_app.sh
 
       - name: Setup ChromeDriver
-        run: docker run -d -p 4444:4444 selenium/standalone-chrome
+        uses: nanasess/setup-chromedriver@latest
+
+      - name: Configure ChromeDriver
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - name: Test app
         run: bash $SCRIPT_DIR/test_app.sh
