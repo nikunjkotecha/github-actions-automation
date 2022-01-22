@@ -1,3 +1,6 @@
 project:
   machine_name: behat
   prefix: (GAB)
+
+behat:
+  web-driver: anything
