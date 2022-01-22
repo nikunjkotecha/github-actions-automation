@@ -3,4 +3,4 @@ project:
   prefix: (GAB)
 
 behat:
-  web-driver: anything
+  web-driver: selenium
