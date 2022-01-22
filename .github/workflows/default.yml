@@ -84,4 +84,4 @@ jobs:
         uses: Xotabu4/selenoid-github-action@v2
 
       - name: Test app
-        run: ${BLT_DIR}/bin/blt tests:behat:run --define drush.alias='${drush.aliases.ci}' --define tests.run-server=true --no-interaction --verbose || { set +v && return 1; }
+        run: $BLT_DIR/bin/blt tests --define drush.alias='${drush.aliases.ci}' -D behat.web-driver=selenium --no-interaction --ansi --verbose
