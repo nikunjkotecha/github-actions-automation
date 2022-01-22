@@ -5,10 +5,17 @@ project:
 behat:
   skip_web_driver_launch: true
   web-driver: selenium
+  server:
+    port: 80
+    url: http://appserver
   selenium:
     url: http://localhost:4444/wd/hub
 
 tests:
+  skip_web_driver_launch: true
   web-driver: selenium
+  server:
+    port: 80
+    url: http://appserver
   selenium:
     url: http://localhost:4444/wd/hub
