@@ -80,6 +80,9 @@ jobs:
       - name: Setup app
         run: bash $SCRIPT_DIR/setup_app.sh
 
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+        run: chrome --version
+
       - name: Test app
         run: bash $SCRIPT_DIR/test_app.sh
-
