@@ -85,4 +85,4 @@ jobs:
           bash ${GITHUB_WORKSPACE}/blt/scripts/install-chrome.sh ${COMPOSER_BIN}
 
       - name: Test app
-        run: bash $SCRIPT_DIR/test_app.sh
+        run: $BLT_DIR/bin/blt tests:behat:run --define drush.alias='${drush.aliases.ci}' -D behat.web-driver=chrome --no-interaction --ansi --verbose
