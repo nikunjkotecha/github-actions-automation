@@ -80,21 +80,9 @@ jobs:
       - name: Setup app
         run: bash $SCRIPT_DIR/setup_app.sh
 
-      - name: Install Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install JAVA
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'zulu'
-
       - name: Configure ChromeDriver
         run: |
-          cd ${GITHUB_WORKSPACE}/tests/behat/chrome
-          nohub java -Dwebdriver.chrome.driver=tests/behat/chrome/node_modules/chromedriver/bin/chromedriver -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > /dev/null 2>&1 &
+          bash ${GITHUB_WORKSPACE}/blt/scripts/install-chrome.sh ${COMPOSER_BIN}
 
       - name: Test app
         run: bash $SCRIPT_DIR/test_app.sh
