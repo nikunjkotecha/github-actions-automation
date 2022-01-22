@@ -82,10 +82,10 @@ jobs:
 
       - name: Configure ChromeDriver
         run: |
-          cd ${GITHUB_WORKSPACE}/tests/behat/bin
+          cd ${GITHUB_WORKSPACE}/tests/behat/chrome
           npm install
           cd ..
-          nohub java -Dwebdriver.chrome.driver=tests/behat/bin/node_modules/chromedriver/bin/chromedriver -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > chromedriver.log 2>&1
+          nohub java -Dwebdriver.chrome.driver=tests/behat/chrome/node_modules/chromedriver/bin/chromedriver -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > chromedriver.log 2>&1
 
       - name: Test app
         run: bash $SCRIPT_DIR/test_app.sh
