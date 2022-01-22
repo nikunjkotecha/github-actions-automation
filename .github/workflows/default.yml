@@ -15,7 +15,7 @@ defaults:
 
 jobs:
   full:
-    name: Full (Build, Validate, Test, Deploy)
+    name: Full (Build, Validate, Test)
 
     runs-on: ubuntu-latest
     container:
@@ -79,6 +79,9 @@ jobs:
 
       - name: Setup app
         run: bash $SCRIPT_DIR/setup_app.sh
+
+      - name: Install Node
+        uses: actions/setup-node@v2
 
       - name: Configure ChromeDriver
         run: |
