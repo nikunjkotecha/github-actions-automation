@@ -41,6 +41,9 @@ jobs:
       SSH_DEPLOYMENT_KEY: ${{ secrets.BLT_SSH_DEPLOYMENT_KEY }}
 
     steps:
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
+
       - name: Prepare environment variables
         run: |
           echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
