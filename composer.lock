@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90e0136b40ff70fae0e1ef27ae96f2e",
+    "content-hash": "bf1591f78ce4e258f4849bef0363f767",
     "packages": [
         {
             "name": "acquia/blt",
@@ -9460,6 +9460,9 @@
             },
             "require": {
                 "php": "^7.1 || ^8.0"
+            },
+            "replace": {
+                "myclabs/deep-copy": "self.version"
             },
             "require-dev": {
                 "doctrine/collections": "^1.0",
