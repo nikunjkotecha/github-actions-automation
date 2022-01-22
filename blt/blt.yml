@@ -3,6 +3,7 @@ project:
   prefix: (GAB)
 
 behat:
+  skip_web_driver_launch: true
   web-driver: selenium
   selenium:
     url: http://localhost:4444/wd/hub
