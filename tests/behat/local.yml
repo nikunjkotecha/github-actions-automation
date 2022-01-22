@@ -27,7 +27,7 @@ local:
       browser_name: chrome
       javascript_session: default
       # configure the base url for your site
-      base_url: ${project.local.uri}
+      base_url: http://local.behat.com
       # set default command for "Show last response" step.
       show_cmd: "open %s"
       # use the following lines to disable SSL authentication for goutte.
@@ -41,7 +41,7 @@ local:
       #       CURLOPT_CERTINFO: false
       #       CURLOPT_TIMEOUT: 120
       selenium2:
-        wd_host: ${behat.selenium.url}
+        wd_host: http://localhost:4444/wd/hub
         browser: chrome
       sessions:
         default:
