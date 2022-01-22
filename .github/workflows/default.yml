@@ -87,6 +87,8 @@ jobs:
 
       - name: Install JAVA
         uses: actions/setup-java@v2
+        with:
+          java-version: '17'
 
       - name: Configure ChromeDriver
         run: |
