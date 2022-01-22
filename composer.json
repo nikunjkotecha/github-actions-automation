@@ -18,6 +18,8 @@
     "require": {
         "php": ">=7.4",
         "acquia/blt": "^12.0",
+        "acquia/blt-behat": "^1.2",
+        "alexku/blt-github-actions": "dev-master",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.3",
@@ -37,7 +39,14 @@
     "prefer-stable": true,
     "config": {
         "discard-changes": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "acquia/blt": true,
+            "drupal/core-composer-scaffold": true,
+            "zaporylie/composer-drupal-optimizations": true
+        }
     },
     "autoload": {
         "classmap": [
@@ -62,15 +71,15 @@
     "extra": {
         "drupal-scaffold": {
             "locations": {
-                "web-root": "web/"
+                "web-root": "docroot/"
             }
         },
         "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "docroot/core": ["type:drupal-core"],
+            "docroot/libraries/{$name}": ["type:drupal-library"],
+            "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+            "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
         "composer-exit-on-patch-failure": true,

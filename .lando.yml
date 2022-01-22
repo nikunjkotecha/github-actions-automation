@@ -1,0 +1,49 @@
+name: behat
+recipe: drupal9
+config:
+  build:
+    run_scripts: false
+  cache: true
+  composer_version: '2'
+  php: '7.4'
+
+services:
+  appserver:
+    config:
+      php: .lando/php.ini
+    xdebug: true
+    build_as_root:
+      - bash /app/.lando/scripts/configure-syslog.sh
+      - bash /app/.lando/scripts/configure-xhprof.sh
+      - apt-get install vim -y
+    run_as_root:
+      # By default disable XDEBUG, we need it enabled to ensure all configurations are loaded.
+      # Post this to enable disable lando xdebug-on and lando xdebug-off can be used.
+      - rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && service apache2 reload
+    overrides:
+      environment:
+        PHP_IDE_CONFIG: "serverName=behat"
+
+proxy:
+  pma:
+    - "pma.behat.lndo.site"
+
+tooling:
+  blt:
+    service: appserver
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for apache.
+    cmd: "docker-php-ext-enable xdebug && /etc/init.d/apache2 reload"
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for apache.
+    cmd: "rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload"
+    user: root
+  logs-drupal:
+    service: appserver
+    description: Displays and tails Drupal logs using syslog module (because drush wd-show no longer supports tail)
+    cmd:
+      - /app/.lando/scripts/logs-drupal.sh
+    user: root
