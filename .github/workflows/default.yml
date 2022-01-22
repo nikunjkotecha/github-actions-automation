@@ -85,24 +85,13 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Configure Node Modules Cache
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache Node Modules
-        uses: actions/cache@v2
-        with:
-          path: |
-            "${{ steps.npm-cache-dir.outputs.dir }}"
-            ~/.npm
-            ~/.nvm
-          key: ${{ runner.os }}-node
+      - name: Install JAVA
+        uses: actions/setup-java@v2
 
       - name: Configure ChromeDriver
         run: |
           cd ${GITHUB_WORKSPACE}/tests/behat/chrome
-          nohub java -Dwebdriver.chrome.driver=tests/behat/chrome/node_modules/chromedriver/bin/chromedriver -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > chromedriver.log 2>&1
+          nohub java -Dwebdriver.chrome.driver=tests/behat/chrome/node_modules/chromedriver/bin/chromedriver -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > /dev/null 2>&1 &
 
       - name: Test app
         run: bash $SCRIPT_DIR/test_app.sh
