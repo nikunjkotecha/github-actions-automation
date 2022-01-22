@@ -74,13 +74,12 @@ jobs:
             ~/.drush/cache
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
 
+      - name: Setup environment
+        run: bash $SCRIPT_DIR/setup_env.sh
 
-    - name: Setup environment
-      run: bash $SCRIPT_DIR/setup_env.sh
+      - name: Setup app
+        run: bash $SCRIPT_DIR/setup_app.sh
 
-    - name: Setup app
-      run: bash $SCRIPT_DIR/setup_app.sh
-
-    - name: Test app
-      run: bash $SCRIPT_DIR/test_app.sh
+      - name: Test app
+        run: bash $SCRIPT_DIR/test_app.sh
 
