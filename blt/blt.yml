@@ -4,3 +4,10 @@ project:
 
 behat:
   web-driver: selenium
+  selenium:
+    url: http://localhost:4444/wd/hub
+
+tests:
+  web-driver: selenium
+  selenium:
+    url: http://localhost:4444/wd/hub
