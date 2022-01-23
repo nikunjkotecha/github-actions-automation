@@ -14,7 +14,7 @@ drupal:
 behat:
   server:
     port: 8888
-    url: http://localhost
+    url: http://localhost:8888
 
 #tests:
 #  skip_web_driver_launch: true
