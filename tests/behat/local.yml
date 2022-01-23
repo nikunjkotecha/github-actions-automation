@@ -27,7 +27,7 @@ local:
       browser_name: chrome
       javascript_session: default
       # configure the base url for your site
-      base_url: http://local.behat.com
+      base_url: http://behat.lndo.site
       # set default command for "Show last response" step.
       show_cmd: "open %s"
       # use the following lines to disable SSL authentication for goutte.

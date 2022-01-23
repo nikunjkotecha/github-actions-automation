@@ -18,17 +18,6 @@ jobs:
     name: Full (Build, Validate, Test)
 
     runs-on: ubuntu-18.04
-    container:
-      image: devwithlando/php:7.4-fpm-4
-
-    services:
-      database:
-        image: mariadb
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 32574:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     env:
       CI: GITHUB_ACTIONS

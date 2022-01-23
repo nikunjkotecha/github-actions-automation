@@ -1,7 +1,9 @@
 project:
   machine_name: behat
   prefix: (GAB)
-
+  local:
+    protocol: http
+    hostname: 'behat.lndo.site'
 behat:
   skip_web_driver_launch: true
   web-driver: selenium
