@@ -1,9 +1,12 @@
-project:
-  machine_name: behat
-  prefix: (GAB)
-  local:
-    protocol: http
-    hostname: 'behat.lndo.site'
+
+# Drupal Account Credentials. These are used for installing Drupal.
+drupal:
+  db:
+    database: drupal
+    username: drupal
+    password: drupal
+    host: localhost
+    port: 3306
 
 behat:
   skip_web_driver_launch: true
