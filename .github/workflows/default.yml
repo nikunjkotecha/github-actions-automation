@@ -42,7 +42,6 @@ jobs:
 
       - name: Run Composer install
         run: |
-          composer self-update
           composer validate --no-check-all --ansi
           composer install --no-interaction || composer install --no-interaction || composer install --no-interaction
 
