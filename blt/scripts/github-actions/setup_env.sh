@@ -3,7 +3,7 @@
 set -ev
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i google-chrome-stable*.deb || apt-get -y -f install
+apt -y -f install ./google-chrome-stable_current_amd64.deb
 rm google-chrome-*.deb
 
 export PATH=${COMPOSER_BIN}:$PATH
