@@ -4,20 +4,30 @@ project:
   local:
     protocol: http
     hostname: 'behat.lndo.site'
+
+# Drupal Account Credentials. These are used for installing Drupal.
+drupal:
+  db:
+    database: drupal
+    username: drupal
+    password: drupal
+    host: localhost
+    port: 3306
+
 behat:
   skip_web_driver_launch: true
   web-driver: selenium
-  server:
-    port: 80
-    url: http://appserver
+#  server:
+#    port: 80
+#    url: http://appserver
   selenium:
     url: http://localhost:4444/wd/hub
 
 tests:
   skip_web_driver_launch: true
   web-driver: selenium
-  server:
-    port: 80
-    url: http://appserver
+#  server:
+#    port: 80
+#    url: http://appserver
   selenium:
     url: http://localhost:4444/wd/hub
