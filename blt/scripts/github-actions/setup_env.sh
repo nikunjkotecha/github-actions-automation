@@ -2,10 +2,10 @@
 
 set -ev
 
-wget https://dl-ssl.google.com/linux/linux_signing_key.pub && sudo apt-key add linux_signing_key.pub
-sudo add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
-sudo apt-get -y update
-sudo apt-get -y install google-chrome-stable
+wget https://dl-ssl.google.com/linux/linux_signing_key.pub && apt-key add linux_signing_key.pub
+add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
+apt-get -y update
+apt-get -y install google-chrome-stable
 
 export PATH=${COMPOSER_BIN}:$PATH
 
