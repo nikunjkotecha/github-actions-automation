@@ -24,11 +24,6 @@ jobs:
       image: devwithlando/php:7.4-fpm-4
 
     services:
-      appserver:
-        build_as_root:
-          - wget https://dl-ssl.google.com/linux/linux_signing_key.pub && apt-key add linux_signing_key.pub
-          - add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
-          - apt-get -y update && apt-get -y install google-chrome-stable
       database:
         image: mariadb
         env:
