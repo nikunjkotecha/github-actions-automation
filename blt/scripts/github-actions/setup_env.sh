@@ -2,9 +2,9 @@
 
 set -ev
 
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
-apt-get -y update
-apt-get -y install google-chrome-stable || apt-get -y -f install
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable*.deb || apt-get -y -f install
+rm google-chrome-*.deb
 
 export PATH=${COMPOSER_BIN}:$PATH
 
