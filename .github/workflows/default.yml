@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - main
+      - docker
   pull_request:
     branches:
       - main
+      - docker
 
 defaults:
   run:
@@ -18,6 +20,22 @@ jobs:
     name: Full (Build, Validate, Test)
 
     runs-on: ubuntu-18.04
+    container:
+      image: devwithlando/php:7.4-fpm-4
+
+    services:
+      appserver:
+        run_as_root:
+          - wget https://dl-ssl.google.com/linux/linux_signing_key.pub && apt-key add linux_signing_key.pub
+          - add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
+          - apt-get -y update && apt-get -y install google-chrome-stable
+      database:
+        image: mariadb
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 32574:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     env:
       CI: GITHUB_ACTIONS
@@ -25,12 +43,9 @@ jobs:
       MYSQL_USER_PASSWORD: drupal
       MYSQL_USER_NAME: drupal
       MYSQL_DATABASE_NAME: drupal
-      MYSQL_HOST: localhost
+      MYSQL_HOST: database
 
     steps:
-      - name: Start Ubuntu MySQL (SUDO)
-        run: sudo service mysql start
-
       - name: Prepare environment variables
         run: |
           echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV

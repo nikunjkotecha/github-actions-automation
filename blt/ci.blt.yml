@@ -6,7 +6,7 @@ drupal:
     database: drupal
     username: drupal
     password: drupal
-    host: localhost
+    host: database
     port: 3306
 
 #behat:
