@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ce0442372307015bd3fd922f797981f",
+    "content-hash": "504e515e299f06a4aaeefecc11cfbfa7",
     "packages": [
         {
             "name": "acquia/blt",
@@ -281,47 +281,6 @@
                 "source": "https://github.com/acquia/drupal-environment-detector/tree/v1.4.0"
             },
             "time": "2021-04-15T17:44:09+00:00"
-        },
-        {
-            "name": "alexku/blt-github-actions",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alexku/blt-github-actions.git",
-                "reference": "69b9b4a7e0dffdfd2bc506543d0286cfe4ace493"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alexku/blt-github-actions/zipball/69b9b4a7e0dffdfd2bc506543d0286cfe4ace493",
-                "reference": "69b9b4a7e0dffdfd2bc506543d0286cfe4ace493",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Acquia\\GithubActions\\": "./src/"
-                },
-                "classmap": [
-                    "src/Blt/Plugin/EnvironmentDetector/GithubActionsDetector.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Ku",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Github Actions integration for Acquia BLT.",
-            "support": {
-                "issues": "https://github.com/alexku/blt-github-actions/issues",
-                "source": "https://github.com/alexku/blt-github-actions/tree/master"
-            },
-            "time": "2021-01-04T15:37:47+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -11844,9 +11803,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "alexku/blt-github-actions": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

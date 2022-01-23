@@ -36,7 +36,7 @@ jobs:
           echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
           echo "COMPOSER_BIN=$(echo ${GITHUB_WORKSPACE}/vendor/bin)" >> $GITHUB_ENV
           echo "BLT_DIR=$(echo ${GITHUB_WORKSPACE}/vendor/acquia/blt)" >> $GITHUB_ENV
-          echo "SCRIPT_DIR=$(echo ${GITHUB_WORKSPACE}/vendor/alexku/blt-github-actions/scripts/github-actions)" >> $GITHUB_ENV
+          echo "SCRIPT_DIR=$(echo ${GITHUB_WORKSPACE}/blt/scripts/github-actions)" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -64,13 +64,13 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup environment
-        run: bash ${GITHUB_WORKSPACE}/blt/scripts/setup_env.sh
+        run: bash ${SCRIPT_DIR}/setup_env.sh
 
       - name: Setup app
-        run: bash $SCRIPT_DIR/setup_app.sh
+        run: bash ${SCRIPT_DIR}/setup_app.sh
 
-      - name: Start Selenoid Server
-        uses: Xotabu4/selenoid-github-action@v2
+#      - name: Start Selenoid Server
+#        uses: Xotabu4/selenoid-github-action@v2
 
       - name: Test app
-        run: $BLT_DIR/bin/blt tests:behat:run --define drush.alias='${drush.aliases.ci}' -D behat.web-driver=selenium --no-interaction --ansi -vvv
+        run: bash ${SCRIPT_DIR}/test_app.sh

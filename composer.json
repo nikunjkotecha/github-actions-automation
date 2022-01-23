@@ -20,7 +20,6 @@
         "acquia/blt": "^12.0",
         "acquia/blt-behat": "^1.2",
         "acquia/blt-drupal-test": "^1.0",
-        "alexku/blt-github-actions": "dev-master",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.3",

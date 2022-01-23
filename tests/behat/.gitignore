@@ -3,6 +3,7 @@ composer.lock
 bin
 vendor
 behat.local.yml
+local.yml
 *.rej
 test_releases
 
