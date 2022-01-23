@@ -4,3 +4,12 @@ project:
   local:
     protocol: http
     hostname: 'behat.lndo.site'
+
+# In local we use Lando.
+drupal:
+  db:
+    database: drupal9
+    username: drupal9
+    password: drupal9
+    host: database
+    port: 3306

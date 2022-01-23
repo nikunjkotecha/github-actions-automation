@@ -2,10 +2,6 @@
 
 set -ev
 
-wget https://dl-ssl.google.com/linux/linux_signing_key.pub && sudo apt-key add linux_signing_key.pub
-sudo add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
-sudo apt-get -y update && sudo apt-get -y install google-chrome-stable
-
 # Create a MySQL database for drupal to use
 MYSQL_ROOT_COMMAND="mysql --user=root --password=$MYSQL_ROOT_PASSWORD --host=$MYSQL_HOST --protocol=tcp"
 echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE_NAME\`;" | $MYSQL_ROOT_COMMAND
