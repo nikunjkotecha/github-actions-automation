@@ -28,6 +28,9 @@ jobs:
       MYSQL_HOST: localhost
 
     steps:
+      - name: Start Ubuntu MySQL (SUDO)
+        run: sudo service mysql start
+
       - name: Prepare environment variables
         run: |
           echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
