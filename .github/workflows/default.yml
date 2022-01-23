@@ -25,9 +25,7 @@ jobs:
       MYSQL_USER_PASSWORD: drupal
       MYSQL_USER_NAME: drupal
       MYSQL_DATABASE_NAME: drupal
-      MYSQL_HOST: database
-      SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-      SSH_DEPLOYMENT_KEY: ${{ secrets.BLT_SSH_DEPLOYMENT_KEY }}
+      MYSQL_HOST: localhost
 
     steps:
       - name: Prepare environment variables
@@ -63,7 +61,7 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
 
       - name: Setup environment
-        run: bash $SCRIPT_DIR/setup_env.sh
+        run: bash ${GITHUB_WORKSPACE}/blt/scripts/setup_env.sh
 
       - name: Setup app
         run: bash $SCRIPT_DIR/setup_app.sh
