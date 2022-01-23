@@ -5,6 +5,14 @@ project:
     protocol: http
     hostname: 'behat.lndo.site'
 
+drupal:
+  db:
+    database: drupal
+    username: drupal
+    password: drupal
+    host: localhost
+    port: 3306
+
 behat:
   skip_web_driver_launch: true
   web-driver: selenium
