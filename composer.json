@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "acquia/blt": "^12.0",
+        "acquia/blt": "^13.5",
         "acquia/blt-behat": "^1.2",
         "acquia/blt-drupal-test": "^1.0",
         "alexku/blt-github-actions": "dev-master",
@@ -25,7 +25,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-recommended": "^9.3",
-        "drush/drush": "^10.6",
+        "drush/drush": "^11",
         "se/selenium-server-standalone": "^3.141",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"
