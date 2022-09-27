@@ -47,7 +47,8 @@
             "cweagans/composer-patches": true,
             "acquia/blt": true,
             "drupal/core-composer-scaffold": true,
-            "zaporylie/composer-drupal-optimizations": true
+            "zaporylie/composer-drupal-optimizations": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "autoload": {
@@ -89,9 +90,6 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "acquia/blt-behat": {
-                "corrected the withArgument logic to prevent fatal errors.": "https://patch-diff.githubusercontent.com/raw/acquia/blt-behat/pull/16.patch"
-            }
         }
     }
 }
