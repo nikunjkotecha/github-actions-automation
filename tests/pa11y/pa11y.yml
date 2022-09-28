@@ -1,0 +1,12 @@
+config:
+  standard: WCAG2A
+  reporter: cli
+  threshold: 0
+  hideElements:
+    - svg
+  ignore:
+    - notice
+paths:
+  - /
+  - /user/login
+  - /user/register
