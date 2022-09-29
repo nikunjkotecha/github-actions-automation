@@ -5346,12 +5346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikunjkotecha/blt-pa11y.git",
-                "reference": "c3af0dbe14d66889b4b60f64cd52b5932c7d10ef"
+                "reference": "e5ec9c92e28b7200500bdcea274e101f0dca3648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikunjkotecha/blt-pa11y/zipball/c3af0dbe14d66889b4b60f64cd52b5932c7d10ef",
-                "reference": "c3af0dbe14d66889b4b60f64cd52b5932c7d10ef",
+                "url": "https://api.github.com/repos/nikunjkotecha/blt-pa11y/zipball/e5ec9c92e28b7200500bdcea274e101f0dca3648",
+                "reference": "e5ec9c92e28b7200500bdcea274e101f0dca3648",
                 "shasum": ""
             },
             "require": {
@@ -5378,7 +5378,7 @@
                 }
             ],
             "description": "Pa11y integration for Acquia BLT",
-            "time": "2022-09-29T04:48:05+00:00"
+            "time": "2022-09-29T09:58:04+00:00"
         },
         {
             "name": "pear/archive_tar",
