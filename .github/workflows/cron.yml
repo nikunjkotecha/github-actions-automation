@@ -1,14 +1,9 @@
 name: Default workflow
 
 on:
-  push:
-    branches:
-      - main
-      - docker
-  pull_request:
-    branches:
-      - main
-      - docker
+  schedule:
+    # Run every week on Monday at 8AM IST.
+    - cron: '30 2 * * MON'
 
 defaults:
   run:
@@ -16,7 +11,7 @@ defaults:
 
 jobs:
   full:
-    name: Full (Build, Validate, Test)
+    name: Validate on Schedule
 
     runs-on: ubuntu-latest
     container:
