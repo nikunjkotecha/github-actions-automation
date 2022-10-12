@@ -74,4 +74,4 @@ jobs:
         run: bash ${SCRIPT_DIR}/setup_app.sh
 
       - name: Test app
-        run: bash ${SCRIPT_DIR}/test_app.sh
+        run: bash ${SCRIPT_DIR}/test_app_cron.sh
