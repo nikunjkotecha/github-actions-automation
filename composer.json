@@ -9,22 +9,29 @@
             "role": ""
         }
     ],
-    "repositories": [
-        {
+    "repositories": {
+        "blt-pa11y": {
+            "type": "vcs",
+            "url": "https://github.com/nikunjkotecha/blt-pa11y.git",
+            "no-api": true
+        },
+        "0": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ],
+    },
     "require": {
         "php": ">=7.4",
-        "acquia/blt": "^12.0",
+        "acquia/blt": "^13.5",
         "acquia/blt-behat": "^1.2",
         "acquia/blt-drupal-test": "^1.0",
+        "alexku/blt-github-actions": "dev-master",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-recommended": "^9.3",
-        "drush/drush": "^10.6",
+        "drush/drush": "^11",
+        "nikunjkotecha/blt-pa11y": "dev-main",
         "se/selenium-server-standalone": "^3.141",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"
@@ -46,14 +53,17 @@
             "cweagans/composer-patches": true,
             "acquia/blt": true,
             "drupal/core-composer-scaffold": true,
-            "zaporylie/composer-drupal-optimizations": true
+            "zaporylie/composer-drupal-optimizations": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
         ],
-        "files": ["load.environment.php"]
+        "files": [
+            "load.environment.php"
+        ]
     },
     "scripts": {
         "pre-install-cmd": [
@@ -76,21 +86,29 @@
             }
         },
         "installer-paths": {
-            "docroot/core": ["type:drupal-core"],
-            "docroot/libraries/{$name}": ["type:drupal-library"],
-            "docroot/modules/contrib/{$name}": ["type:drupal-module"],
-            "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
         },
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches": {
-            "acquia/blt-behat": {
-                "corrected the withArgument logic to prevent fatal errors.": "https://patch-diff.githubusercontent.com/raw/acquia/blt-behat/pull/16.patch"
-            }
-        }
+        "patches": []
     }
 }
