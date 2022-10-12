@@ -1,10 +1,6 @@
-name: Default workflow
+name: PR Validate
 
 on:
-  push:
-    branches:
-      - main
-      - docker
   pull_request:
     branches:
       - main
@@ -16,7 +12,7 @@ defaults:
 
 jobs:
   full:
-    name: Full (Build, Validate, Test)
+    name: PR Validate
 
     runs-on: ubuntu-latest
     container:
