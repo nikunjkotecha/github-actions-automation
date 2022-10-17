@@ -44,7 +44,7 @@ jobs:
           echo "SCRIPT_DIR=$(echo ${GITHUB_WORKSPACE}/blt/scripts/github-actions)" >> $GITHUB_ENV
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run Composer install
         run: |
