@@ -1,6 +1,7 @@
 name: Cron
 
 on:
+  workflow_dispatch:
   schedule:
     # Run every week on Monday at 8AM IST.
     - cron: '30 2 * * MON'
