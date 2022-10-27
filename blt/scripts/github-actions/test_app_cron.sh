@@ -6,7 +6,12 @@ cd ${GITHUB_WORKSPACE}
 
 $BLT_DIR/bin/blt tests:security-drupal --no-interaction --ansi -vvv
 $BLT_DIR/bin/blt tests:security-composer --no-interaction --ansi -vvv
+
+
+wget --max-redirect=1 https://goo.gl/s4o9Vx -O selenium.jar
+java -jar selenium.jar &
 $BLT_DIR/bin/blt tests:behat:run -D tests.run-server=true --no-interaction --ansi -vvv
+
 $BLT_DIR/bin/blt tests:pa11y:run -D tests.run-server=true --no-interaction --ansi -vvv
 
 set +v

@@ -46,6 +46,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: microsoft
+          java-version: 17
+
       - name: Run Composer install
         run: |
           composer validate --no-check-all --ansi
