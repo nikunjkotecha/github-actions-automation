@@ -1,15 +1,24 @@
 project:
-  machine_name: behat
-  prefix: (GAB)
+  machine_name: gaa
+  prefix: (GAA)
+  profile:
+    name: standard
   local:
     protocol: http
-    hostname: 'behat.lndo.site'
+    hostname: 'gaa.lndo.site'
 
 # In local we use Lando.
 drupal:
+  account:
+    name: admin
+    pass: admin
+    mail: no-reply@example.com
   db:
     database: drupal9
     username: drupal9
     password: drupal9
     host: database
     port: 3306
+
+cm:
+  strategy: none

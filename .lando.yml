@@ -1,17 +1,18 @@
-name: behat
+name: gaa
 recipe: drupal9
+
 config:
-  build:
-    run_scripts: false
-  cache: true
-  composer_version: '2'
+  webroot: 'docroot'
+  xdebug: true
   php: '8.0'
 
 services:
+  database:
+    app_mount: disabled
+    type: mariadb
   appserver:
-    config:
-      php: .lando/php.ini
     xdebug: true
+    app_mount: delegated
     build_as_root:
       - bash /app/.lando/scripts/configure-syslog.sh
       - bash /app/.lando/scripts/configure-xhprof.sh
@@ -22,11 +23,11 @@ services:
       - rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && service apache2 reload
     overrides:
       environment:
-        PHP_IDE_CONFIG: "serverName=behat"
+        PHP_IDE_CONFIG: "serverName=gaa"
 
 proxy:
   pma:
-    - "pma.behat.lndo.site"
+    - "pma-gaa.lndo.site"
 
 tooling:
   blt:

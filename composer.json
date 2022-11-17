@@ -18,6 +18,18 @@
         "0": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "jquery-validation": {
+            "type": "package",
+            "package": {
+                "name": "jquery-validation/jquery-validation",
+                "version": "1.19.5",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/jquery-validation/jquery-validation/releases/download/1.19.5/jquery-validation-1.19.5.zip",
+                    "type": "zip"
+                }
+            }
         }
     },
     "require": {
@@ -28,9 +40,11 @@
         "alexku/blt-github-actions": "dev-master",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
+        "drupal/clientside_validation": "^4.0",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drush/drush": "^11",
+        "jquery-validation/jquery-validation": "^1.19",
         "nikunjkotecha/blt-pa11y": "dev-main",
         "se/selenium-server-standalone": "^3.141",
         "vlucas/phpdotenv": "^5.1",
