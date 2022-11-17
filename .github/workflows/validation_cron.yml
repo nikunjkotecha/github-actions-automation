@@ -1,4 +1,4 @@
-name: Cron
+name: Validation on Schedule
 
 on:
   workflow_dispatch:
@@ -12,15 +12,15 @@ defaults:
 
 jobs:
   full:
-    name: Validate on Schedule
+    name: Validation
     runs-on: ubuntu-latest
 
     env:
       CI: GITHUB_ACTIONS
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER_NAME: drupal
-      MYSQL_USER_PASSWORD: drupal
-      MYSQL_DATABASE_NAME: drupal
+      MYSQL_USER_NAME: drupal9
+      MYSQL_USER_PASSWORD: drupal9
+      MYSQL_DATABASE_NAME: drupal9
       MYSQL_HOST: 127.0.0.1
 
     steps:

@@ -7,7 +7,6 @@ project:
     protocol: http
     hostname: 'gaa.lndo.site'
 
-# In local we use Lando.
 drupal:
   account:
     name: admin
@@ -17,7 +16,7 @@ drupal:
     database: drupal9
     username: drupal9
     password: drupal9
-    host: database
+    host: 127.0.0.1
     port: 3306
 
 cm:
