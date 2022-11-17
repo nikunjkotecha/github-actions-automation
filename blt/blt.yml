@@ -16,7 +16,7 @@ drupal:
     database: drupal9
     username: drupal9
     password: drupal9
-    host: 127.0.0.1
+    host: database
     port: 3306
 
 cm:
