@@ -1,0 +1,57 @@
+name: Cron
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every week on Monday at 8AM IST.
+    - cron: '30 2 * * MON'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  full:
+    name: Validate on Schedule
+    runs-on: ubuntu-latest
+
+    env:
+      CI: GITHUB_ACTIONS
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER_NAME: drupal
+      MYSQL_USER_PASSWORD: drupal
+      MYSQL_DATABASE_NAME: drupal
+      MYSQL_HOST: 127.0.0.1
+
+    steps:
+      - name: Prepare environment variables
+        run: |
+          echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
+          echo "COMPOSER_BIN=$(echo ${GITHUB_WORKSPACE}/vendor/bin)" >> $GITHUB_ENV
+          echo "BLT_DIR=$(echo ${GITHUB_WORKSPACE}/vendor/acquia/blt)" >> $GITHUB_ENV
+          echo "SCRIPT_DIR=$(echo ${GITHUB_WORKSPACE}/blt/scripts/github-actions)" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Composer install
+        run: |
+          composer validate --no-check-all --ansi
+          composer install --no-interaction || composer install --no-interaction || composer install --no-interaction
+
+      - name: Prepare bin executables
+        run: |
+          ln -s ${GITHUB_WORKSPACE}/vendor/acquia/blt/bin/blt /usr/local/bin/blt
+          ln -s ${GITHUB_WORKSPACE}/vendor/drush/drush/drush /usr/local/bin/drush
+
+      - name: Setup ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
+
+      - name: Setup environment
+        run: bash ${SCRIPT_DIR}/setup_env.sh
+
+      - name: Setup app
+        run: bash ${SCRIPT_DIR}/setup_app.sh
+
+      - name: Test app
+        run: bash ${SCRIPT_DIR}/test_app_cron.sh

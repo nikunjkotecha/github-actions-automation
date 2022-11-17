@@ -2,11 +2,6 @@
 
 set -ev
 
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-apt -y update
-apt -y -f install ./google-chrome-stable_current_amd64.deb
-rm google-chrome-*.deb
-
 export PATH=${COMPOSER_BIN}:$PATH
 
 # Prepare ssh config for deployment to Acquia Cloud.
@@ -30,6 +25,9 @@ blt blt:telemetry:disable --no-interaction
 # Up the PHP Memory Limit
 touch /usr/local/etc/php/conf.d/docker-php-ext-ci.ini
 echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-ext-ci.ini
+
+# Start MySQL
+sudo systemctl start mysql.service
 
 # Create a MySQL database for drupal to use
 MYSQL_ROOT_COMMAND="mysql --user=root --password=$MYSQL_ROOT_PASSWORD --host=$MYSQL_HOST --protocol=tcp"
