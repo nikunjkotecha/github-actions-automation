@@ -6,6 +6,8 @@ export PATH=${COMPOSER_BIN}:$PATH
 
 blt blt:telemetry:disable --no-interaction
 
+sudo echo "127.0.0.1 database" >> /etc/hosts
+
 # Start MySQL
 sudo systemctl start mysql.service
 
