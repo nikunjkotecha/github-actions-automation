@@ -21,9 +21,13 @@ jobs:
       MYSQL_USER_NAME: drupal9
       MYSQL_USER_PASSWORD: drupal9
       MYSQL_DATABASE_NAME: drupal9
-      MYSQL_HOST: 127.0.0.1
+      MYSQL_HOST: database
 
     steps:
+      - name: Add hosts to /etc/hosts
+        run: |
+          sudo echo "127.0.0.1 database" | sudo tee -a /etc/hosts
+
       - name: Prepare environment variables
         run: |
           echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
