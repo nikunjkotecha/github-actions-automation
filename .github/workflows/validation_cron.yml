@@ -18,9 +18,9 @@ jobs:
     env:
       CI: GITHUB_ACTIONS
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER_NAME: drupal9
-      MYSQL_USER_PASSWORD: drupal9
-      MYSQL_DATABASE_NAME: drupal9
+      MYSQL_USER_NAME: drupal
+      MYSQL_USER_PASSWORD: drupal
+      MYSQL_DATABASE_NAME: drupal
       MYSQL_HOST: database
 
     steps:

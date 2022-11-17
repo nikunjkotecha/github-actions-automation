@@ -3,7 +3,11 @@ project.local.hostname: 127.0.0.1:8888
 # Drupal Account Credentials. These are used for installing Drupal.
 drupal:
   db:
+    database: drupal
+    username: drupal
+    password: drupal
     host: 127.0.0.1
+    port: 3306
 
 #behat:
 #  server:

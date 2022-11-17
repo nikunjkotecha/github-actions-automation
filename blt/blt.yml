@@ -1,4 +1,5 @@
 project:
+  human_name: Github Actions Automation
   machine_name: gaa
   prefix: (GAA)
   profile:
