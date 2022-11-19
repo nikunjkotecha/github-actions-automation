@@ -57,5 +57,11 @@ jobs:
       - name: Setup app
         run: bash ${SCRIPT_DIR}/setup_app.sh
 
-      - name: Test app
-        run: bash ${SCRIPT_DIR}/test_app_cron.sh
+      - name: Test Security
+        run: bash ${SCRIPT_DIR}/test_security.sh
+
+      - name: Test Behat
+        run: bash ${SCRIPT_DIR}/test_behat.sh
+
+      - name: Test PA11Y
+        run: bash ${SCRIPT_DIR}/test_pa11y.sh

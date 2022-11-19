@@ -25,7 +25,7 @@ local:
     DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\MinkExtension:
       browser_name: chrome
-      javascript_session: default
+      javascript_session: selenium2
       # configure the base url for your site
       base_url: ${project.local.uri}
       # set default command for "Show last response" step.
@@ -41,12 +41,16 @@ local:
       #       CURLOPT_CERTINFO: false
       #       CURLOPT_TIMEOUT: 120
       selenium2:
-        wd_host: ${behat.selenium.url}
+        wd_host: ${tests.selenium.url}
         browser: chrome
       sessions:
         default:
-          chrome:
-            api_url: "http://localhost:9222"
+          goutte:
+            guzzle_parameters:
+              verify: false
+        javascript:
+          selenium2:
+            wd_host: ${tests.selenium.url}
     Drupal\DrupalExtension:
       drupal:
         # This must be an absolute path.
