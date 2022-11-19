@@ -24,8 +24,7 @@ cm:
   strategy: none
 
 behat:
-  web-driver: chrome
-  skip_web_driver_launch: true
+  web-driver: chromedriver
 
 tests:
   drupal:
