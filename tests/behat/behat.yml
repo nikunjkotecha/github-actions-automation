@@ -13,7 +13,7 @@ default:
           verify: false
       files_path: "%paths.base%/media"
       selenium2:
-        wd_host: http://127.0.0.1:4444/wd/hub
+        wd_host: http://127.0.0.1:9515/wd/hub
         capabilities:
           chrome:
             switches:
