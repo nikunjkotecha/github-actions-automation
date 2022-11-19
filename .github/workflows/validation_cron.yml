@@ -48,9 +48,6 @@ jobs:
           ln -s ${GITHUB_WORKSPACE}/vendor/acquia/blt/bin/blt /usr/local/bin/blt
           ln -s ${GITHUB_WORKSPACE}/vendor/drush/drush/drush /usr/local/bin/drush
 
-      - name: Setup ChromeDriver
-        uses: nanasess/setup-chromedriver@v1
-
       - name: Setup environment
         run: bash ${SCRIPT_DIR}/setup_env.sh
 
@@ -59,6 +56,14 @@ jobs:
 
       - name: Test Security
         run: bash ${SCRIPT_DIR}/test_security.sh
+
+      - name: Setup ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
+
+      - name: Run ChromeDriver
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
 
       - name: Test Behat
         run: bash ${SCRIPT_DIR}/test_behat.sh
