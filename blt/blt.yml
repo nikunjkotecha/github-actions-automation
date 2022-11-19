@@ -22,3 +22,11 @@ drupal:
 
 cm:
   strategy: none
+
+behat:
+  web-driver: chrome
+  skip_web_driver_launch: true
+
+tests:
+  drupal:
+    web-driver: chrome
