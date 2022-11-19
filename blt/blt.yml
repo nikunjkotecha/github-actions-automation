@@ -29,4 +29,4 @@ behat:
 
 tests:
   drupal:
-    web-driver: chrome
+    web-driver: chromedriver
