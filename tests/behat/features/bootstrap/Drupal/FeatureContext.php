@@ -25,7 +25,7 @@ class FeatureContext extends RawDrupalContext {
    * @Given /^I wait for the page to load$/
    */
   public function iWaitForThePageToLoad() {
-    $this->getSession()->wait(60000, "document.readyState === 'complete'");
+    $this->getSession()->wait(3600000, "document.readyState === 'complete'");
   }
 
   /**
