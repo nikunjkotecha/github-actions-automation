@@ -8,8 +8,8 @@ Feature: Contact
   Scenario: Load a page with Javascript
     Given I am on "/contact"
     And I wait for the page to load
-    When I click on "#edit-submit" element
-    Then I should see an "#edit-name-error" element
-    Then I should see an "#edit-mail-error" element
-    Then I should see an "#edit-subject-error" element
-    Then I should see an "#edit-message-error" element
+    When I click on "#contact-message-feedback-form #edit-submit" element
+    Then I should see an "#contact-message-feedback-form #edit-name-error" element
+    Then I should see an "#contact-message-feedback-form #edit-mail-error" element
+    Then I should see an "#contact-message-feedback-form #edit-subject-error" element
+    Then I should see an "#contact-message-feedback-form #edit-message-error" element
