@@ -11,5 +11,5 @@ Feature: Contact
     When I click on "#contact-message-feedback-form #edit-submit" element
     Then I should see an "#contact-message-feedback-form #edit-name-error" element
     Then I should see an "#contact-message-feedback-form #edit-mail-error" element
-    Then I should see an "#contact-message-feedback-form #edit-subject-error" element
-    Then I should see an "#contact-message-feedback-form #edit-message-error" element
+    Then I should see an "#contact-message-feedback-form #edit-subject-0-value-error" element
+    Then I should see an "#contact-message-feedback-form #edit-message-0-value-error" element
