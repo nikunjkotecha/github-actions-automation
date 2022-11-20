@@ -1,4 +1,5 @@
 config:
+  timeout: 50000
   standard: WCAG2A
   reporter: cli
   threshold: 0
