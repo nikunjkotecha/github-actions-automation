@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "95b2e52eac88af093c07671990e79e7f",
+    "content-hash": "c7666588bc4194d92e442a3f4ae10b56",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5410,16 +5410,16 @@
         },
         {
             "name": "nikunjkotecha/blt-pa11y",
-            "version": "dev-main",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikunjkotecha/blt-pa11y.git",
-                "reference": "e5ec9c92e28b7200500bdcea274e101f0dca3648"
+                "reference": "05e2e6cf63d21a32d657540587256ac89d035efe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikunjkotecha/blt-pa11y/zipball/e5ec9c92e28b7200500bdcea274e101f0dca3648",
-                "reference": "e5ec9c92e28b7200500bdcea274e101f0dca3648",
+                "url": "https://api.github.com/repos/nikunjkotecha/blt-pa11y/zipball/05e2e6cf63d21a32d657540587256ac89d035efe",
+                "reference": "05e2e6cf63d21a32d657540587256ac89d035efe",
                 "shasum": ""
             },
             "require": {
@@ -5428,7 +5428,6 @@
             "conflict": {
                 "acquia/blt": "<=12.5.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -5446,7 +5445,7 @@
                 }
             ],
             "description": "Pa11y integration for Acquia BLT",
-            "time": "2022-09-29T09:58:04+00:00"
+            "time": "2022-11-20T06:00:04+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -12444,8 +12443,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "alexku/blt-github-actions": 20,
-        "nikunjkotecha/blt-pa11y": 20
+        "alexku/blt-github-actions": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
