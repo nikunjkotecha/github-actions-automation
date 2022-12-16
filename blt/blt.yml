@@ -29,5 +29,5 @@ behat:
 tests:
   drupal:
     web-driver: chromedriver
-  selenium:
-    port: 9515
+  chromedriver:
+    port: 4444
