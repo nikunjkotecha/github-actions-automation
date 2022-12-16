@@ -24,10 +24,28 @@ services:
     overrides:
       environment:
         PHP_IDE_CONFIG: "serverName=gaa"
+  chromedriver:
+    type: compose
+    services:
+      image: seleniarm/standalone-chromium:latest
+      shm_size: 2gb
+      ports:
+        - 4444
+        - 5900
+        - 7900
+      environment:
+        JAVA_OPTS: "-Dwebdriver.chrome.whitelistedIps="
+        CHROMEDRIVER_WHITELISTED_IPS: ""
+        CHROMEDRIVER_URL_BASE: "/wd/hub"
+      security_opt:
+        - seccomp:unconfined
+      command: /opt/bin/entry_point.sh
 
 proxy:
   pma:
-    - "pma-gaa.lndo.site"
+    - pma-gaa.lndo.site
+  chromedriver:
+    - novnc-gaa.lndo.site:7900
 
 tooling:
   blt:

@@ -9,8 +9,13 @@ drupal:
     host: 127.0.0.1
     port: 3306
 
-#behat:
-#  server:
-#    port: 8888
-#    url: http://127.0.0.1:8888
-#
+tests:
+  browser: chrome
+  drupal:
+    web-driver: chromedriver
+  selenium:
+    url: http://127.0.0.1:9515/wd/hub
+    port: 9515
+
+behat:
+  example_file: '/tests/behat/example.ci.yml'
