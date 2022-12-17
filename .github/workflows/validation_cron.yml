@@ -13,7 +13,7 @@ defaults:
 jobs:
   full:
     name: Validation
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     env:
       CI: GITHUB_ACTIONS
@@ -49,7 +49,9 @@ jobs:
           ln -s ${GITHUB_WORKSPACE}/vendor/drush/drush/drush /usr/local/bin/drush
 
       - name: Setup environment
-        run: bash ${SCRIPT_DIR}/setup_env.sh
+        run: |
+          sudo systemctl start mysql.service
+          bash ${SCRIPT_DIR}/setup_env.sh
 
       - name: Setup app
         run: bash ${SCRIPT_DIR}/setup_app.sh
