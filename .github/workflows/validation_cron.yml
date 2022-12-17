@@ -43,6 +43,18 @@ jobs:
           composer validate --no-check-all --ansi
           composer install --no-interaction || composer install --no-interaction || composer install --no-interaction
 
+      - name: Cache dependencies installed with Composer
+        id: composer-cache
+        run: |
+          echo dir=$(composer config cache-files-dir) >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            "${{ steps.composer-cache.outputs.dir }}"
+            ~/.drush/cache
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+
       - name: Prepare bin executables
         run: |
           ln -s ${GITHUB_WORKSPACE}/vendor/acquia/blt/bin/blt /usr/local/bin/blt
