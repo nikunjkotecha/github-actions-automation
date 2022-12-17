@@ -13,7 +13,7 @@ defaults:
 jobs:
   full:
     name: Validation
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
 
     env:
       CI: GITHUB_ACTIONS
@@ -26,7 +26,6 @@ jobs:
     steps:
       - name: Add hosts to /etc/hosts
         run: |
-          sudo chmod o+rx ~
           sudo echo "127.0.0.1 database" | sudo tee -a /etc/hosts
 
       - name: Prepare environment variables
