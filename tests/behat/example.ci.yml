@@ -1,5 +1,5 @@
 # To generate a local.yml file using this the example template, execute:
-# `blt tests:behat:init` from the project root.
+# `blt tests:behat:init:config` from the project root.
 imports:
   - behat.yml
 
@@ -43,21 +43,6 @@ local:
       selenium2:
         wd_host: ${tests.selenium.url}
         browser: chrome
-        capabilities:
-          marionette: true
-          browserName: ${tests.browser}
-          javascriptEnabled: true
-          extra_capabilities:
-            browser: ${tests.browser}
-            acceptInsecureCerts: true
-          chrome:
-            switches:
-              - "--no-sandbox"
-              - "--headless"
-              - "--disable-gpu"
-              - "--window-size=428,845"
-              - "--ignore-certificate-errors"
-              - "--disable-dev-shm-usage"
       sessions:
         default:
           goutte:

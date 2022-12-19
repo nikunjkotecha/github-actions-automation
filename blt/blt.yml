@@ -27,7 +27,10 @@ behat:
   web-driver: chromedriver
 
 tests:
+  browser: chromium
+  selenium:
+    url: http://chromedriver:4444/wd/hub
   drupal:
     web-driver: chromedriver
-  selenium:
-    port: 9515
+  chromedriver:
+    port: 4444

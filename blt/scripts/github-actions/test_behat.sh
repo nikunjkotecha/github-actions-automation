@@ -4,7 +4,7 @@ set -ev
 
 cd ${GITHUB_WORKSPACE}
 
-blt tests:behat:init
-blt tests:behat:run -D tests.run-server=true --no-interaction --ansi -vvv
+blt tests:behat:init --environment=ci
+blt tests:behat:run -D tests.run-server=true --environment=ci --no-interaction --ansi -vvv
 
 set +v

@@ -6,9 +6,6 @@ export PATH=${COMPOSER_BIN}:$PATH
 
 blt blt:telemetry:disable --no-interaction
 
-# Start MySQL
-sudo systemctl start mysql.service
-
 # Create a MySQL database for drupal to use
 MYSQL_ROOT_COMMAND="mysql --user=root --password=$MYSQL_ROOT_PASSWORD --host=$MYSQL_HOST --protocol=tcp"
 echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE_NAME\`;" | $MYSQL_ROOT_COMMAND

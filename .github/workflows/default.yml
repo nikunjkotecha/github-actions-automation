@@ -59,14 +59,20 @@ jobs:
       - name: Cache dependencies installed with Composer
         id: composer-cache
         run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
+          echo dir=$(composer config cache-files-dir) >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: |
             "${{ steps.composer-cache.outputs.dir }}"
             ~/.drush/cache
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14.19.0"
+          cache: "npm"
 
       - name: Setup environment
         run: bash ${SCRIPT_DIR}/setup_env.sh
