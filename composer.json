@@ -45,7 +45,6 @@
         "drupal/core-recommended": "^9.3",
         "drush/drush": "^11",
         "jquery-validation/jquery-validation": "^1.19",
-        "nikunjkotecha/blt-pa11y": "^1.0",
         "se/selenium-server-standalone": "^3.141",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"
