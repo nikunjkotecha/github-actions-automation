@@ -15,8 +15,6 @@ jobs:
     name: PR Validate
 
     runs-on: ubuntu-latest
-    container:
-      image: devwithlando/php:8.0-fpm-4
 
     services:
       database:
@@ -36,12 +34,23 @@ jobs:
       MYSQL_HOST: database
 
     steps:
+      - name: Add hosts to /etc/hosts
+        run: |
+          sudo echo "127.0.0.1 database" | sudo tee -a /etc/hosts
+
       - name: Prepare environment variables
         run: |
           echo "GITHUB_REF_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
           echo "COMPOSER_BIN=$(echo ${GITHUB_WORKSPACE}/vendor/bin)" >> $GITHUB_ENV
           echo "BLT_DIR=$(echo ${GITHUB_WORKSPACE}/vendor/acquia/blt)" >> $GITHUB_ENV
           echo "SCRIPT_DIR=$(echo ${GITHUB_WORKSPACE}/blt/scripts/github-actions)" >> $GITHUB_ENV
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          ini-values: post_max_size=256M, max_execution_time=180,error_reporting=E_ERROR
+          coverage: none
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -75,10 +84,23 @@ jobs:
           cache: "npm"
 
       - name: Setup environment
-        run: bash ${SCRIPT_DIR}/setup_env.sh
+        run: |
+          sudo systemctl start mysql.service
+          bash ${SCRIPT_DIR}/setup_env.sh
 
       - name: Setup app
         run: bash ${SCRIPT_DIR}/setup_app.sh
 
-      - name: Test app
-        run: bash ${SCRIPT_DIR}/test_app.sh
+      - name: Test Security
+        run: bash ${SCRIPT_DIR}/test_security.sh
+
+      - name: Setup ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
+
+      - name: Run ChromeDriver
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+
+      - name: Test Behat
+        run: bash ${SCRIPT_DIR}/test_behat.sh
